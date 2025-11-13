@@ -7,19 +7,19 @@ interface InteractiveMapProps {
 }
 
 const regionCoordinates: Record<string, { x: string; y: string; label: string }> = {
-  "karelia": { x: "23%", y: "15%", label: "Карелия" },
-  "pomory": { x: "35%", y: "10%", label: "Архангельск" },
-  "saami": { x: "30%", y: "5%", label: "Кольский п-ов" },
-  "tatarstan": { x: "32%", y: "35%", label: "Татарстан" },
-  "bashkortostan": { x: "35%", y: "38%", label: "Башкортостан" },
-  "chuvashia": { x: "30%", y: "37%", label: "Чувашия" },
-  "mari-el": { x: "31%", y: "34%", label: "Марий Эл" },
-  "udmurtia": { x: "35%", y: "33%", label: "Удмуртия" },
-  "ossetia": { x: "27%", y: "52%", label: "Осетия" },
-  "kalmykia": { x: "30%", y: "48%", label: "Калмыкия" },
-  "buryatia": { x: "68%", y: "38%", label: "Бурятия/Тыва" },
-  "yakutia": { x: "75%", y: "25%", label: "Якутия" },
-  "far-east": { x: "88%", y: "35%", label: "Дальний Восток" },
+  "saami": { x: "18%", y: "12%", label: "Кольский п-ов" },
+  "karelia": { x: "19%", y: "22%", label: "Карелия" },
+  "pomory": { x: "28%", y: "18%", label: "Архангельск" },
+  "mari-el": { x: "32%", y: "42%", label: "Марий Эл" },
+  "chuvashia": { x: "31%", y: "45%", label: "Чувашия" },
+  "tatarstan": { x: "33%", y: "43%", label: "Татарстан" },
+  "udmurtia": { x: "36%", y: "40%", label: "Удмуртия" },
+  "bashkortostan": { x: "37%", y: "45%", label: "Башкортостан" },
+  "kalmykia": { x: "30%", y: "58%", label: "Калмыкия" },
+  "ossetia": { x: "28%", y: "60%", label: "Осетия" },
+  "buryatia": { x: "66%", y: "48%", label: "Бурятия/Тыва" },
+  "yakutia": { x: "73%", y: "32%", label: "Якутия" },
+  "far-east": { x: "86%", y: "48%", label: "Дальний Восток" },
 };
 
 export default function InteractiveMap({ onRegionClick, hoveredRegion, onRegionHover }: InteractiveMapProps) {
