@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Card } from "@/components/ui/card";
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
 import Icon from "@/components/ui/icon";
+import InteractiveMap from "@/components/InteractiveMap";
 
 interface Region {
   id: string;
@@ -199,6 +200,13 @@ export default function Index() {
   const [selectedRegion, setSelectedRegion] = useState<Region | null>(null);
   const [hoveredRegion, setHoveredRegion] = useState<string | null>(null);
 
+  const handleRegionClick = (regionId: string) => {
+    const region = regions.find(r => r.id === regionId);
+    if (region) {
+      setSelectedRegion(region);
+    }
+  };
+
   const RegionCard = ({ region }: { region: Region }) => (
     <div
       className="group cursor-pointer p-6 rounded-2xl bg-white border-2 border-primary/20 hover:border-primary hover:shadow-xl transition-all duration-300 hover:scale-105 animate-fade-in"
@@ -235,22 +243,11 @@ export default function Index() {
         </div>
 
         <div className="mb-16">
-          <div className="relative w-full max-w-5xl mx-auto aspect-[2/1] bg-white rounded-3xl shadow-2xl p-8 overflow-hidden">
-            <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-secondary/5"></div>
-            <img 
-              src="https://cdn.poehali.dev/files/4897a665-c464-455a-bd25-d0d594ebed6c.png" 
-              alt="Карта России" 
-              className="w-full h-full object-contain relative z-10"
-            />
-            <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
-              <div className="text-center animate-scale-in">
-                <Icon name="MousePointerClick" size={48} className="text-primary mx-auto mb-4" />
-                <p className="text-lg font-heading font-semibold text-primary">
-                  Выберите регион из списка ниже
-                </p>
-              </div>
-            </div>
-          </div>
+          <InteractiveMap 
+            onRegionClick={handleRegionClick}
+            hoveredRegion={hoveredRegion}
+            onRegionHover={setHoveredRegion}
+          />
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-7xl mx-auto">
